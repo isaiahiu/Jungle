@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/faq'
   resources :about, only: [:index]
-
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :show]
 
+     
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
