@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+  get 'users/create'
   get 'static_pages/help'
   get 'static_pages/faq'
   resources :about, only: [:index]
