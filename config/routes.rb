@@ -1,29 +1,34 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
-  get 'users/create'
+  root to: 'products#index'
+  
   get 'static_pages/help'
   get 'static_pages/faq'
-  resources :about, only: [:index]
+  
+  # to be refactored 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
-  root to: 'products#index'
-
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  
+  
+  resources :about, only: [:index]
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+  resources :orders, only: [:create, :show]
 
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
   end
-
-  resources :orders, only: [:create, :show]
-
-     
+  
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]  
+
+     
 
   end
 
