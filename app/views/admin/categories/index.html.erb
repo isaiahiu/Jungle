@@ -10,7 +10,16 @@
   <div class="well">
     <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
   </div>
+  
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center"> <span>Name</span><span>Products</span></li>
 
-  <%= render "category" %>
+  <% @categories.each do |item| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+     <%= item.name %> 
+    <span class="badge"><%= item.products.size %></span>
+  </li>
+  <% end %>
+</ul>
 
 </section>
