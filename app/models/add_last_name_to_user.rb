@@ -1,0 +1,2 @@
+class AddLastNameToUser < ApplicationRecord
+end
