@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
 
        @user2 = User.create(name: "Copy", last_name: "OfJohn", email: "test@TEST.com", password: "jungle", password_confirmation: "jungle")
 
-       expect(@user2.id).to be_present
+       expect(@user2.errors.full_messages).to include "Email has already been taken"
     end
   end
 end
