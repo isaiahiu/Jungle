@@ -72,5 +72,21 @@ RSpec.describe User, type: :model do
         expect(User.authenticate_with_credentials("wrongemail@test.com", @user.password)).to be_nil
       end
     end
+
+    context "given an email that starts or ends in whitespaces" do
+      it "should return user object if credentials match otherwise" do
+        @user = User.create(name: "John", last_name: "Smith", email: "test@test.com", password: "jungle", password_confirmation: "jungle")
+
+          expect(User.authenticate_with_credentials(" test@test.com ", @user.password)).to be_a User
+      end
+    end
+
+    context 'given an email with the wrong case' do
+      it "should return user object if credentials match otherwise" do
+        @user = User.create(name: "John", last_name: "Smith", email: "test@test.com", password: "jungle", password_confirmation: "jungle")
+
+          expect(User.authenticate_with_credentials("tEsT.TEST.com", @user.password)).to be_a User
+      end
+    end
   end
 end
