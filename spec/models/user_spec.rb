@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   end
 
   context "Password and password confirmation dont match" do
-    it "should return an error" do
+   it "should return an error" do
       @user = User.create(name: "John", last_name: "Smith", email: "test@test.com", password: "jungle", password_confirmation: "book")
 
       expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
@@ -36,6 +36,23 @@ RSpec.describe User, type: :model do
        @user2 = User.create(name: "Copy", last_name: "OfJohn", email: "test@TEST.com", password: "jungle", password_confirmation: "jungle")
 
        expect(@user2.errors.full_messages).to include "Email has already been taken"
+    end
+  end
+
+  context "email, first name and last name should be required" do
+    it "should return error message without" do
+         @user = User.create(name: nil, last_name: nil, email: nil, password: 'jungle', password_confirmation: 'jungle')
+
+      expect(@user.valid?).to eq false
+      expect(@user.errors.full_messages).to include "Email can't be blank", "Name can't be blank", "Last name can't be blank"
+    end
+  end
+
+  context "password must have minimum 3 length" do
+    it "should return with error message if password is too short" do
+      @user = User.create(name: "John", last_name: "Smith", email: "test@test.com", password: "ju", password_confirmation: "ju")
+
+      expect(@user.errors.full_messages).to include "Password is too short (minimum is 3 characters)"
     end
   end
 end
