@@ -13,9 +13,10 @@ RSpec.describe Product, type: :model do
       @category = Category.new
       @product = Product.create(name: nil, price: 30, quantity: 6, category: @category)
 
+      expect(@product.id).to_not be_present
       expect(@product.errors.full_messages).to include "Name can't be blank"
       end
-    it 'should give an error if price is ommitted' do 
+    it 'should give an error if price is ommitted' do #to do
       @category = Category.new
       @product = Product.create(name: "Test", quantity: 6, category: @category)
 
