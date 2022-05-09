@@ -85,7 +85,7 @@ RSpec.describe User, type: :model do
       it "should return user object if credentials match otherwise" do
         @user = User.create(name: "John", last_name: "Smith", email: "test@test.com", password: "jungle", password_confirmation: "jungle")
 
-          expect(User.authenticate_with_credentials("tEsT.TEST.com", @user.password)).to be_a User
+          expect(User.authenticate_with_credentials("tEsT@TEST.com", @user.password)).to be_a User
       end
     end
   end
