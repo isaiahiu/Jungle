@@ -11,7 +11,7 @@ class User < ApplicationRecord
     if user.authenticate(password) == true 
       user     
     else
-     nil
+      nil
    end
   end
 
