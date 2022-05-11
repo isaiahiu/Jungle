@@ -42,7 +42,7 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 - [x] Major: Admin users can list and create new categories
 - [x] Major: Admins can add new products using the new category
 - [x] Major: Restful routes (`resources`) should be used, and there should be no extra, unused routes exposed
-- [ ] Bonus: All admin controllers inherit from `Admin::BaseController` (or similarly named) abstract controller, containing the authentication filter
+- [x] Bonus: All admin controllers inherit from `Admin::BaseController` (or similarly named) abstract controller, containing the authentication filter
 
 #### Feature: User Authentication
 
