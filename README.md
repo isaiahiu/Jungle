@@ -35,7 +35,7 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 #### Feature: Sold Out Badge
 
 - [x] Major: When a product has 0 quantity, a sold out badge should be displayed on the product list page
-- [ ] Minor: Should ideally be implemented as a question/boolean method in view helper and/or Product model
+- [x] Minor: Should ideally be implemented as a question/boolean method in view helper and/or Product model
 
 #### Feature: Admin Categories
 
