@@ -57,13 +57,13 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 - [x] Major: The order page contains items, their image, name, description, quantities and line item totals
 - [x] Major: The final amount for the order is displayed
-- [ ] Minor: The email that was used to place the order is displayed
-- [ ] Minor: As a Visitor I can place an order (i.e. without logging in and therefore without an e-mail address). The original functionality from the inherited code (even though it is not realistic) should therefore not be suppressed.
+- [x] Minor: The email that was used to place the order is displayed
+- [x] Minor: As a Visitor I can place an order (i.e. without logging in and therefore without an e-mail address). The original functionality from the inherited code (even though it is not realistic) should therefore not be suppressed.
 
 #### Bug: Missing Admin Security
 
 - [x] Major: User must enter HTTP auth login/password to access admin functionality
-- [ ] Bonus: Should ideally be implemented in an abstract top-level class for admin controllers (e.g., `Admin::BaseController` which the other concrete admin controllers inherit)
+- [x] Bonus: Should ideally be implemented in an abstract top-level class for admin controllers (e.g., `Admin::BaseController` which the other concrete admin controllers inherit)
 
 #### Bug: Checking Out with Empty Cart
 
